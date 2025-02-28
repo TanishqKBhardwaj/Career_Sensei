@@ -23,7 +23,7 @@ function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <nav className='py-6 w-full h-fit absolute top-0 shadow-lg shadow-violet-500' style={{ background: "radial-gradient(circle, rgba(5,1,12,1) 100%, rgba(133,40,224,0.9865196078431373) 100%, rgba(0,212,255,1) 100%)" }}>
+    <nav className='py-6 w-full h-fit  shadow-lg shadow-violet-500' style={{ background: "radial-gradient(circle, rgba(5,1,12,1) 100%, rgba(133,40,224,0.9865196078431373) 100%, rgba(0,212,255,1) 100%)" }}>
       <div className='max-w-6xl mx-auto flex items-center justify-between gap-1 px-4'>
         <h1 className='text-xl md:text-3xl'>Career<span className='text-purple-500'>Sensei</span></h1>
 
