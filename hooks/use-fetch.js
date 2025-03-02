@@ -13,6 +13,7 @@ const useFetch=(cb)=>{
         try {
             const response=await cb(...args);
              setData(response);
+             console.log(response)
             setError(null);
         } catch (error) {
             setError(error)
