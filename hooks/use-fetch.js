@@ -1,3 +1,4 @@
+
 const { useState } = require("react")
 const { toast } = require("sonner")
 
@@ -22,6 +23,6 @@ const useFetch=(cb)=>{
             setLoading(false);
         }
     }
-    return {data,loading,fn}
+    return {data,loading,fn,setData}
 }
 export default useFetch

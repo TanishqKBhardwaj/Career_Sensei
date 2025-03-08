@@ -58,11 +58,11 @@ return quiz.questions;
 }
 
 
-export async function savedQuizResult(questions,ans,score){
+export async function savedQuizResult(questions,answer,score){
  const {userId}=await auth()
  if(!userId)
     throw new Error("Unauthorized")
-const user =await db.findOne({
+const user =await db.user.findUnique({
     where:{
         clerkUserId:userId
     }
@@ -115,13 +115,13 @@ if (wrongAnswers.length > 0) {
 }
 
 try {
-  const assessment = await db.assessment.create({
+  const assessment = await db.assesment.create({
     data: {
       userId: user.id,
       quizScore: score,
       questions: questionResults,
       category: "Technical",
-      improvementTip,
+      improvmentTip:improvementTip,
     },
   });
 
@@ -130,4 +130,32 @@ try {
   console.error("Error saving quiz result:", error);
   throw new Error("Failed to save quiz result");
 }
+}
+
+export async function getAssessments(){
+  const {userId}=await auth()
+  if(!userId)
+     throw new Error("Unauthorized")
+ const user =await db.user.findUnique({
+     where:{
+         clerkUserId:userId
+     }
+ })
+ if(!user)
+     throw new Error("User not found")
+
+ try {
+  const assessments=await db.assesment.findMany({
+    where:{
+      userId:user.id
+    },
+    orderBy:{
+      createdAt:"asc" 
+    }
+  })
+  return assessments;
+ } catch (error) {
+  console.log("Error fetching assesments",error);
+  throw new Error("Failed to fetch assessments");
+ }
 }
