@@ -15,9 +15,7 @@ import {
 } from '@clerk/nextjs';
 
 import React, { useState } from 'react';
-import { MenuIcon, XIcon, StarIcon } from 'lucide-react';
-import { redirect } from 'next/navigation';
-
+import { MenuIcon, XIcon } from 'lucide-react';
 function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
