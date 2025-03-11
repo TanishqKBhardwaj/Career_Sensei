@@ -4,8 +4,8 @@ import {getUserOnboardingStatus} from '../../../actions/user'
 import { redirect } from 'next/navigation';
 async function page() {
 
-  const {isOnboarded}=await getUserOnboardingStatus();
-  if(isOnboarded){
+  const {isOnBoarded}=await getUserOnboardingStatus();
+  if(isOnBoarded){
       redirect('/dahsboard');
   }
   return (
